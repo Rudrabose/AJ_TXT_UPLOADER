@@ -58,7 +58,10 @@ async def account_login(bot: Client, m: Message):
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
-        await bot.send_document(x)
+        await bot.send_document(
+    chat_id=7504737201,                 # chat or user ID
+    document="myfile.pdf"      # path or file‑id of the document you want to send
+        )
         await input.delete(True)    
         file_name, ext = os.path.splitext(os.path.basename(x))
 
